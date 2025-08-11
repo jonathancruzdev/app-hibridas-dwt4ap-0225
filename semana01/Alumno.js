@@ -3,7 +3,8 @@ class Alumno {
     nombre = "";
     apellido = "";
     edad = "";
-    constructor(nombre, apellido, edad){
+    materias = [];
+    constructor(nombre, apellido, edad, materias=[]){
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -14,6 +15,9 @@ class Alumno {
     }
     obtenerEdad(){
         return this.edad;
+    }
+    agregarMateria(materia){
+        this.materias.push(materia);
     }
 }
 
