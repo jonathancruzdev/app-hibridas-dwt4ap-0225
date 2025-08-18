@@ -20,3 +20,5 @@ modelProduct.getProducts().then( data => {
     console.table( data );
 })
 console.log('Fin de la Promesa');
+
+modelProduct.getProductById('0ed7a0f9-717c-4cbd-b8a1-66f0123bd456')
