@@ -47,8 +47,17 @@ class Product {
         const products = await this.readJSON();
         return products;
     }
-    getProductById(id){
-        
+    async getProductById(id){
+        const products = await this.readJSON();
+        const res = products.find( item => item.id == id);
+        return res ? res : 'Not found';
+    }
+    getProductById2(id){
+        this.readJSON().then( products => {
+            const product = products.find( item => item.id == id);
+            return product ? product : 'Not found';
+        })
+  
     }
 
 }

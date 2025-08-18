@@ -14,11 +14,16 @@ modelProduct.addProduct({
     stock: 10
 }) */
 
-console.log('Inicio de la Promesa');
+/* console.log('Inicio de la Promesa');
 // Con Promesa
 modelProduct.getProducts().then( data => {
     console.table( data );
 })
 console.log('Fin de la Promesa');
+ */
+const buscarPorId = async (id) => {
+    const resultado = await modelProduct.getProductById(id);
+    console.log(resultado);
+}
 
-modelProduct.getProductById('0ed7a0f9-717c-4cbd-b8a1-66f0123bd456')
+buscarPorId('0ed7a0f9-717c-4cbd-b8a1-66f0123bd456')
