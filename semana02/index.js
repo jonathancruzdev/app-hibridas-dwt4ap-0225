@@ -1,0 +1,22 @@
+const Product = require('./Product.js');
+const modelProduct = new Product();
+
+/* modelProduct.addProduct({
+    name:'Mate 2',
+    price: 3000,
+    stock: 50
+})
+ */
+/* 
+modelProduct.addProduct({
+    name:'Termo 1lt',
+    price: 5000,
+    stock: 10
+}) */
+
+console.log('Inicio de la Promesa');
+// Con Promesa
+modelProduct.getProducts().then( data => {
+    console.table( data );
+})
+console.log('Fin de la Promesa');

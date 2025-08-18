@@ -1,0 +1,14 @@
+[
+  {
+    "id": "de4e5b88-4839-42e7-8212-30080c3c4028",
+    "name": "Mate 2",
+    "price": 3000,
+    "stock": 50
+  },
+  {
+    "id": "0ed7a0f9-717c-4cbd-b8a1-66f0123bd456",
+    "name": "Termo 1lt",
+    "price": 5000,
+    "stock": 10
+  }
+]
