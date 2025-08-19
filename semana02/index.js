@@ -26,4 +26,7 @@ const buscarPorId = async (id) => {
     console.log(resultado);
 }
 
-buscarPorId('0ed7a0f9-717c-4cbd-b8a1-66f0123bd456')
+// buscarPorId('0ed7a0f9-717c-4cbd-b8a1-66f0123bd456');
+modelProduct.deleteProductById('0ed7a0f9-717c-4cbd-b8a1-66f0123bd450').then( r =>{
+    console.log(r);
+})

@@ -10,5 +10,11 @@
     "name": "Termo 1lt",
     "price": 5000,
     "stock": 10
+  },
+  {
+    "id": "0ed7a0f9-717c-4cbd-b8a1-66f0123bd475",
+    "name": "Bombilla",
+    "price": 1000,
+    "stock": 100
   }
 ]
