@@ -1,8 +1,11 @@
+const dotenv = require('dotenv');
 const chalk = require('chalk');
 const express = require('express');
 const Product = require('./Product.js');
-const port = 3000;
 const server = express();
+dotenv.config();
+const port = process.env.PORT;
+
 
 const model = new Product();
 console.log(  chalk.bgGreen('API REST') );
@@ -24,7 +27,12 @@ server.get('/api/products', async (request, response)=>{
 server.get('/api/products/:id', async (request, response)=>{
     console.log( request.params.id);
     response.send(request.params.id);
-   
+})
+
+server.post('/api/products', async (request, response) => {
+    const body = request.body;
+    console.log(body);
+    response.send('Recibido');
 })
 
 

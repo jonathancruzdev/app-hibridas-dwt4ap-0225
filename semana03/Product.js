@@ -58,7 +58,6 @@ class Product {
             return product ? product : 'Not found';
         })
     }
-
     async deleteProductById(id){
         // Leemos los datos del json local
         this.products = await this.readJSON();
@@ -67,6 +66,20 @@ class Product {
         if( index != -1) {
             console.log(index);
             this.products.splice(index, 1);
+            await this.saveJSON();
+        } else {
+            console.log('Not Found');
+        }
+    }
+    async updateProductById(id, product){
+                this.products = await this.readJSON();
+        // Buscamos la posición el producto en el array
+        const index = this.products.findIndex( product => product.id == id );
+        if( index != -1) {
+            console.log(index);
+            this.products[index].name = product.name;
+            this.products[index].price = product.price;
+            this.products[index].stock = product.stock;
             await this.saveJSON();
         } else {
             console.log('Not Found');
