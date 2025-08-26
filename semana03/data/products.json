@@ -1,20 +1,19 @@
 [
   {
-    "id": "de4e5b88-4839-42e7-8212-30080c3c4028",
-    "name": "Mate 2",
-    "price": 3000,
-    "stock": 50
+    "id": "35df3524-bd7d-49ed-bda0-f4599ec024a0",
+    "price": 950,
+    "stock": 25
   },
   {
-    "id": "0ed7a0f9-717c-4cbd-b8a1-66f0123bd456",
+    "id": "279a4bb6-81a6-4d9d-ae2d-a3c10bae9b0b",
     "name": "Termo 1lt",
-    "price": 5000,
-    "stock": 10
+    "price": 20000,
+    "stock": 25
   },
   {
-    "id": "0ed7a0f9-717c-4cbd-b8a1-66f0123bd475",
-    "name": "Bombilla",
-    "price": 1000,
+    "id": "ced09764-8528-42af-a9ab-543af30c6ba3",
+    "name": "mate",
+    "price": 3500,
     "stock": 100
   }
 ]

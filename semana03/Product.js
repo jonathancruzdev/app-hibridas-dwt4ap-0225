@@ -31,7 +31,8 @@ class Product {
         }
     }
     // Agrega un producto al array
-    addProduct( product ){
+    async addProduct( product ){
+        this.products = await this.readJSON();
         const id = crypto.randomUUID();
         this.products.push({
             id: id,
@@ -40,7 +41,7 @@ class Product {
             price: product.price,
             stock: product.stock
         })
-        this.saveJSON();
+        await this.saveJSON();
     }
     // Retorna la lista de productos
     async getProducts(){
@@ -72,7 +73,7 @@ class Product {
         }
     }
     async updateProductById(id, product){
-                this.products = await this.readJSON();
+        this.products = await this.readJSON();
         // Buscamos la posición el producto en el array
         const index = this.products.findIndex( product => product.id == id );
         if( index != -1) {
