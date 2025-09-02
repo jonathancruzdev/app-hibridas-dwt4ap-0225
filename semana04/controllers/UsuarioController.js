@@ -4,6 +4,8 @@ const crearUsuario = async ( request, response) =>{
     const body = request.body;
     const nuevoUsuario =  new Usuario(body);
     await nuevoUsuario.save();
+
+    response.json({ msg: "Usuario creado"});
 }
 
 const listarUsuarios = async ( request, response) =>{

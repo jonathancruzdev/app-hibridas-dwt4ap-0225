@@ -1,7 +1,9 @@
-const usuarioRoutas = require('./UsuarioRouter');
+const usuarioRuta = require('./UsuarioRouter');
+const ingredienteRuta = require('./IngredienteRouter');
 
 const routerAPI = ( app ) =>{
-    app.use('usuarios/', usuarioRoutas);
+    app.use('/api/usuarios', usuarioRuta);
+    app.use('/api/ingredientes', ingredienteRuta);
 }
 
 module.exports = routerAPI;
