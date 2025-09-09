@@ -23,6 +23,14 @@ db.once('open', () => { console.log('Conexión con la DB Correcta 👌')});
 
 const app = express();
 app.use(  express.json() );
+
+app.use('/', express.static('public'));
+
+app.use(  (request, response, next) => {
+    console.log('Hola soy el middleware 👋');
+    next();
+});
+
 app.get('/', (request, response) => {
     response.send('<h1> API 🐔 </h1>');
 })
