@@ -7,11 +7,12 @@ import {
         updeteUserById,
         auth 
     } from '../controllers/UsuarioController.js';
+import { validarJWT} from '../middlewares/auth.js';
 const router = express.Router();
 
 // Creamos las rutas
 router.get('/', listarUsuarios);
-router.get('/:id', getUserById);
+router.get('/:id', validarJWT,  getUserById);
 router.delete('/:id', deleteUserById);
 router.put('/:id', updeteUserById);
 router.post('/', crearUsuario);
