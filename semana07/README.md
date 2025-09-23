@@ -1,4 +1,5 @@
 # Semana 07
-1. Agregar encriptación de contraseña (bcrypt)
-2. Implementar JWT (jsonwebtoken)
-3. Protejer una ruta
+- En base a la API del TP1 agregar las funcionalidades
+1. Encriptar las contraseñas
+2. Crear el JWT
+3. Proteger las rutas de los documentos, para los métodos: POST, DELETE y PUT
