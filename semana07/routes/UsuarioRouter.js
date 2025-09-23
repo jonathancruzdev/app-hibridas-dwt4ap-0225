@@ -13,8 +13,8 @@ const router = express.Router();
 // Creamos las rutas
 router.get('/', listarUsuarios);
 router.get('/:id', validarJWT,  getUserById);
-router.delete('/:id',validarJWT, deleteUserById);
-router.put('/:id', validarJWT, updeteUserById);
+router.delete('/:id', deleteUserById);
+router.put('/:id', updeteUserById);
 router.post('/', crearUsuario);
 router.post('/auth', auth);
 

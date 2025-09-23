@@ -48,6 +48,7 @@ const listarUsuarios = async ( request, response) =>{
 
 const getUserById = async ( request, response) => {
     const id = request.params.id;
+
     const user = await Usuario.findById(id);
     if( user){
         response.status(200).json( {data: user});

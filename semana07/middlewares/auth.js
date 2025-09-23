@@ -5,13 +5,19 @@ dotenv.config();
 const SECRET_KEY = process.env.SECRET_KEY;
 
 const validarJWT = (request, response, next ) => {
-    const jwt = request.headers.autorization;
-    if( !jwt){
+    const token = request.headers.authorization;
+    if( !token){
         response.status(401).json({msg: 'Falta el token'});
     }
-
+    const jwt = token.split(' ')[1];
     console.log({jwt});
-
+    jsonwebtoken.verify(jwt, SECRET_KEY, (error, decoded) => {
+        if( error){
+            response.status(403).json({ msg: 'Token invalido'});
+        }
+        console.log( { decoded});
+        request.body.userId = decoded.id;
+    })
     next();
 }
 
