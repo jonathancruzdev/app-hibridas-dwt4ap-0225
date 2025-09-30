@@ -3,6 +3,19 @@ import './App.css'
 /* 3ª forma de incluir imagenes */
 import laptop from "./assets/laptop.png";
 
+function Card( { titulo,temas } ){
+  // Bloque de código JS
+  //const {titulo,temas } = props;
+  // JSX
+  return (
+    <div className='card'>
+      <h2> { titulo }</h2>
+      <p>  { temas  } </p>
+    </div>
+  )
+
+}
+
 function App() {
   const materia = "Aplicaciones Híbridas";
   const cuatrimestres = 4;
@@ -35,12 +48,21 @@ function App() {
       <hr />
       <h2>Materias correlativas</h2>
 
+      <hr />
+      <h2>Componetes</h2>
+      
+      <div className="container">
+        <Card titulo="Maquetado y Desarrollo Web" temas="Sematicas y BoxModel"/>
+        <Card titulo="Diseño Vectorial" temas="Ilustrator"/>
+      </div>
+
+
+      
+      <hr />
+
       <div className="container">
         {
-          materias.map( materia => <div className="card" key={materia.id}>
-                                      <h4>{ materia.nombre}</h4> 
-                                      <p>{materia.temas}</p>
-                                    </div>)
+          materias.map( materia => <Card key={materia.id} titulo={materia.nombre} temas={materia.temas}/>)
         }
       </div>
 
