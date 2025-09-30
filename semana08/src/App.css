@@ -4,9 +4,19 @@
   padding: 2rem;
   text-align: center;
 }
-
+.icon {
+  width: 128px;
+}
 .violeta {
   color: slateblue;
+}
+.card {
+  border: 1px solid snow;
+  border-radius: 5px;
+}
+
+.container {
+  display: flex;
 }
 
 .logo {
