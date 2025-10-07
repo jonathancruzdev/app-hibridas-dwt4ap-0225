@@ -5,11 +5,38 @@
   text-align: center;
 }
 
+header {
+  height: 15vh;
+}
+
+main {
+  min-height: 65vh;
+  width: 80vw;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 1px solid rebeccapurple;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  min-height: 100px;
+}
+.card {
+  border: 0.5px solid snow;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #3b3b3b;
+  width: 100px;
+
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);

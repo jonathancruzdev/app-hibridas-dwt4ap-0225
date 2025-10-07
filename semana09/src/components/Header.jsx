@@ -1,9 +1,10 @@
+import Title from "./Title";
 function Header({nombre}) {
   
     return (
       <>
         <header>
-            <h1> { nombre }</h1>
+            <Title nombre={ nombre} />
         </header>
       </>
     )
