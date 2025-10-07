@@ -3,6 +3,7 @@ const Card = ({name, description}) => {
         <div className="card">
             <h4>{ name }</h4>
             <p>{ description }</p>
+            <button type="button">Ver</button>
         </div>
     )
 }

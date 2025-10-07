@@ -36,7 +36,12 @@ main {
   border-radius: 5px;
   background-color: #3b3b3b;
   width: 100px;
+  transition: ease-in-out 0.5s;
+}
 
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 2px 2px 10px #888;
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
