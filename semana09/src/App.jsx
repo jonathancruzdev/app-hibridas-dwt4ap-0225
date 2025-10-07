@@ -13,6 +13,12 @@ function App() {
     { id:4 , name: 'CSS', description: 'Flexbox'},
   ]
 
+  const addToCar = ( curso ) => {
+    console.log(`El fue agregado al carrito `);
+    console.log(curso);
+  }
+
+
   return (
     <>
       <Header nombre="Cursos" /> 
@@ -20,7 +26,13 @@ function App() {
         <Container>
           {
             cursos.map( curso => (
-              <Card key={curso.id} name={curso.name} description={curso.description} />
+              <Card 
+                  key={curso.id}
+                  id={curso.id} 
+                  name={curso.name} 
+                  description={curso.description} 
+                  add={ addToCar }
+                />
             ))
           }
         </Container>
