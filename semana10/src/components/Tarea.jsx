@@ -1,5 +1,6 @@
 const Tarea = ({id, descripcion, fecha}) => {
 
+  const fecha_f = new Date(fecha).toLocaleDateString();
   return (
     <li className="tarea">
         <button className="change">
@@ -7,7 +8,7 @@ const Tarea = ({id, descripcion, fecha}) => {
         </button>
         <div className="descripcion">
             <p className="nombre"> { descripcion }</p>
-            <p className="timestamp">{ fecha }</p>
+            <p className="timestamp">{ fecha_f}</p>
         </div>
     </li>
   )

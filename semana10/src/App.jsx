@@ -47,6 +47,24 @@ function App() {
     setTareas( [...tareas, nueva]  );
     console.table( tareas);
     // Fetch a la API del tipo POST
+    const config = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ descripcion})
+    }
+    fetch(endPoint, config).then( resp =>  resp.json() )
+    .then( json => {
+      console.log(json);
+
+    }).catch( error => {
+      console.error(error);
+      alert('Error del servidor al Guardar la tarea')
+    })
+
+
+
   }
   return (
     <>
@@ -66,7 +84,7 @@ function App() {
         </form>
         <Tareas>
           {
-            tareas.map( item => <Tarea key={item.id} descripcion={item.descripcion} fecha={item.fecha} /> )
+            tareas.map( item => <Tarea key={item._id} descripcion={item.descripcion} fecha={item.fecha} /> )
           }
         </Tareas>
       </main>
