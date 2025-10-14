@@ -1,7 +1,7 @@
 const Nav = ( {usuario}) => {
 
-    const logout = () => {
-        confirm('¿Finalizar Sesión?');
+    const logout = (n) => {
+        confirm('¿Finalizar Sesión? ' + 1);
     }
   return (
     <nav>
@@ -9,7 +9,7 @@ const Nav = ( {usuario}) => {
         <div className="user-info">
             <p> { usuario }</p>
             <div className="user-image"></div>
-            <button onClick={ () => logout() } type="button">Cerrar Sesión</button>
+            <button onClick={ () => logout(1) } type="button">Cerrar Sesión</button>
         </div>
     </nav>
   )

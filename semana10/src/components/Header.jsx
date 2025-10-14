@@ -1,5 +1,3 @@
-
-
 const Header = ( {children} ) => {
     return (
         <header className="user-info">
