@@ -5,17 +5,11 @@ import Nav from './components/Nav'
 import Footer from './components/Footer'
 import Tareas from './components/Tareas'
 import Tarea from './components/Tarea'
+import Loading from './components/Loading'
 function App() {
-/*   // Breve repaso
-  const persona = { nombre: 'Jonathan', apellido: 'Cruz'};
-  const { nombre, apellido } = persona;
 
-  const lenguajes = ['JavaScript', 'PHP', 'Python', () => { console.log('hola')}];
-  const [cero, uno, dos, tres ] = lenguajes;
-  //console.log(nombre, apellido);
-  //console.log(uno, dos, tres); */
   const nombre = 'Jonathan';
-  const endPoint = 'http://127.0.0.1:5000/api/tasks'; 
+  const endPoint = 'https://apidwt4ap.onrender.com/api/tasks'; 
 
   useEffect( () => {
 
@@ -26,27 +20,23 @@ function App() {
     }).catch( error => {
       console.error(error);
       alert('Error del servidor')
+    }).finally( () => {
+      setLoad( false)
     })
 
   }, [])
 
   const [ tarea, setTarea ] = useState('');
   const [ tareas, setTareas ] = useState([]);
-
+  const [ load, setLoad] = useState( true );
   const manejadorForm = ( event ) => {
     setTarea( event.target.value);
   }
   const manejadorSubmit = ( event) => {
     event.preventDefault();
     const descripcion = tarea;
-    const fecha =  new Date().toLocaleDateString();
-    const id = tareas.length + 1;
-    const nueva = {id, descripcion, fecha};
-    console.log(nueva);
-    // tareas.push( nueva ); No es correcto
-    setTareas( [...tareas, nueva]  );
-    console.table( tareas);
-    // Fetch a la API del tipo POST
+    setLoad( true);
+  // Fetch a la API del tipo POST
     const config = {
       method: 'POST',
       headers: {
@@ -57,13 +47,19 @@ function App() {
     fetch(endPoint, config).then( resp =>  resp.json() )
     .then( json => {
       console.log(json);
+      const _id = json.data._id;
+      const fecha = json.data.fecha;
+      const nueva = { _id, descripcion, fecha };
+
+      setTareas( [...tareas, nueva]  );
+      setTarea('');
 
     }).catch( error => {
       console.error(error);
       alert('Error del servidor al Guardar la tarea')
+    }).finally( () => {
+      setLoad( false );
     })
-
-
 
   }
   return (
@@ -72,13 +68,16 @@ function App() {
         <Nav usuario={nombre}/>
       </Header>
       <main className='container'>
+        { load ? <Loading /> : <></> }
+        
         <form onSubmit={manejadorSubmit } >
           <input 
             onChange={ e => setTarea( e.target.value) }
             value={tarea} 
             type="text" 
             name="nueva" 
-            placeholder="Nueva tarea" 
+            placeholder="Nueva tarea"
+            required 
             />
           <button type="submit"> Crear</button>
         </form>
