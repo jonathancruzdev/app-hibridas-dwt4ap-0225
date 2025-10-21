@@ -57,6 +57,16 @@ nav .user-info button {
   margin-bottom: 2.5rem;
 }
 
+form.register {
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+form.register input {
+  width: 100%;
+}
+
 form {
   background-color: var(--negro);
   padding: 2rem 3rem;
