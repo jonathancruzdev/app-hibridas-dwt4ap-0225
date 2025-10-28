@@ -17,7 +17,7 @@ const Nav = ( {usuario}) => {
             <NavLink to='/login'>Login</NavLink>
           </li>
           <li>
-            <NavLink to='/registro'>Registro</NavLink>
+            <NavLink to='/register'>Registro</NavLink>
           </li>
         </ul>
         <div className="user-info">
