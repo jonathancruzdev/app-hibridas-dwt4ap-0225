@@ -77,6 +77,17 @@ form {
   align-items: center;
 }
 
+form.login {
+  flex-direction: column;
+}
+
+form.login input {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+
 form input {
 
   flex-grow: 1;
@@ -277,5 +288,6 @@ footer img {
 
 .active {
   color: teal;
+  padding-bottom: 2px;
   border-bottom: 2px solid teal;
 }

@@ -1,6 +1,4 @@
-import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, NavLink, useNavigate  } from 'react-router-dom'
-
 import './App.css'
 
 import MainLayout from './components/MainLayout'

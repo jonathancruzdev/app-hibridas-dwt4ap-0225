@@ -7,7 +7,7 @@ import Loading from '../components/Loading'
 
 const Home = () => {
 
-    const endPoint = 'http://10.23.22.22:5000/api/tasks'; 
+    const endPoint = 'http://10.23.22.22:3000/api/tasks'; 
 
     useEffect( () => {
   
