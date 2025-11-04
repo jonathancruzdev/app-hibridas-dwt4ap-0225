@@ -14,3 +14,12 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
+ul li a {
+    text-decoration: none;
+}
+
+ul li a:hover {
+    color:  teal;
+    font-weight: 700;
+}

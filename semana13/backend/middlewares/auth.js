@@ -12,17 +12,17 @@ const validarJWT = (request, response, next ) => {
 
     try {
         const jwt = token.startsWith("Bearer ") ? token.slice(7): null;
-        //console.log({jwt});
         jsonwebtoken.verify(jwt, SECRET_KEY, (error, decoded) => {
             if( error){
                 response.status(403).json({ msg: 'Token invalido'});
             }
             console.log( { decoded});
-            request.body.userId = decoded.id;
+            request.userId = decoded.id;
         })
+ 
         next();
     } catch (error) {
-        response.status(500).json({ msg:'Error al obtener las recetas', data: []});
+        response.status(500).json({ msg:'Error del servidor', data: []});
         
     }
 

@@ -3,11 +3,11 @@ import Receta from "../models/RecetaModel.js";
 const getRecetas = async ( req, res) => {
     try {       
         const recetas = await Receta.find();
-
+        console.log('GET')
         res.status(200).json({ msg: 'Ok', data: recetas});
     } catch (error) {
         console.error({error});
-        res.status(500).json({ msg:'Error al obtener las recetas', data: []});
+        res.status(500).json({ msg:'Error al obtener las recetasxx', data: []});
     }
 }
 

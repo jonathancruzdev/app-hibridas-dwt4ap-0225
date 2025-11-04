@@ -8,7 +8,7 @@ const Nav = ( {usuario}) => {
     }
   return (
     <nav>
-        <h1> To-Do APP </h1>
+        <h1> 🐔 Recetas APP </h1>
         <ul className="menu">
           <li>
             <NavLink to='/'> Inicio</NavLink>

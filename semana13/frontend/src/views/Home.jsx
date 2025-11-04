@@ -1,20 +1,26 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 
 import Tareas from '../components/Tareas'
 import Tarea from '../components/Tarea'
 import Loading from '../components/Loading'
-
-
+import { AuthContext } from "../context/AuthContext";
 const Home = () => {
 
-    const endPoint = 'http://10.23.22.22:3000/api/tasks'; 
+    const endPoint = 'http://localhost:3000/api/recetas'; 
+    const { token } = useContext( AuthContext );
 
+    console.log( {token} )
     useEffect( () => {
-  
-      fetch(endPoint).then( resp =>  resp.json() )
+      const option = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      }
+      fetch(endPoint, option ).then( resp =>  resp.json() )
       .then( json => {
         console.log(json);
-        setTareas( json.data )
+       // setTareas( json.data )
       }).catch( error => {
         console.error(error);
         alert('Error del servidor')

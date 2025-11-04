@@ -13,7 +13,7 @@ const MainLayout = () => {
 
             <Outlet />
 
-            <Footer descripcion="DV | To_Do APP" />
+            <Footer descripcion="DV | Recetas APP" />
 
         </>
     )

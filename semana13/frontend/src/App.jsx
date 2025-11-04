@@ -7,11 +7,15 @@ import Home from './views/Home'
 import Login from './views/Login'
 import Register from './views/Register'
 import NotFound from './views/NotFound'
+
+import {  AuthProvider } from './context/AuthContext'
+
+
 function App() {
 
   return (
     <>
-
+    <AuthProvider >
       <BrowserRouter> 
         <Routes>
           <Route  element={ <MainLayout />} >
@@ -23,7 +27,7 @@ function App() {
          
         </Routes>
       </BrowserRouter>
-      
+    </AuthProvider>
     </>
   )
 }

@@ -1,9 +1,12 @@
-import { useState } from "react"
-import { NavLink, useNavigate } from "react-router-dom"
+import { useState, useContext } from "react"
 
+import { NavLink, useNavigate } from "react-router-dom"
+import { AuthContext } from "../context/AuthContext";
 const Login = () => {
     const navigate = useNavigate();
+
     const [ user, setUser ] = useState({ email: '', password: ''});
+    const { login } = useContext( AuthContext );
 
     const onChange = ( event ) =>{
         const { name, value} = event.target;
@@ -18,7 +21,7 @@ const Login = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email: user.email, password: user.password})
+            body: JSON.stringify({ email: user.email, clave: user.password})
         };
         const resp = await fetch(endPoint, option);
         console.log(resp);
@@ -29,10 +32,8 @@ const Login = () => {
             return
         } 
         const jwt = data.data;
-        // Por el momento guardamos el token en el localStorage. Y cambiamos a la home 
-        // Luego vamos a usar context
-        localStorage.setItem('jwt', jwt);
-       // navigate('/');
+        login(user, jwt)
+        navigate('/')
     }
     return (
         <main className='container'>
