@@ -1,4 +1,4 @@
-const Tareas = ( {children}) => {
+const Recetas = ( {children}) => {
   return (
     <ul className="tareas-pendientes">
         { children}
@@ -6,4 +6,4 @@ const Tareas = ( {children}) => {
   )
 }
 
-export default Tareas
+export default Recetas

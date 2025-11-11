@@ -96,6 +96,25 @@ form input {
   border: 2px solid var(--app-grey);
 }
 
+.formReceta {
+  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.formReceta input, textarea {
+  width: 90%;
+  
+
+}
+form textarea {
+  border-radius: 5vh;
+  padding: .8rem 1rem;
+  border: 2px solid var(--app-grey);
+}
+
 form input:focus {
   outline: none;
   border: 2px solid var(--lila);

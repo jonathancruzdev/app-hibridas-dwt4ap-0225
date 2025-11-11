@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
 
-import Tareas from '../components/Tareas'
-import Tarea from '../components/Tarea'
+import Recetas from '../components/Recetas'
+import Receta from '../components/Receta'
 import Loading from '../components/Loading'
 import { AuthContext } from "../context/AuthContext";
 const Home = () => {
@@ -9,7 +9,6 @@ const Home = () => {
     const endPoint = 'http://localhost:3000/api/recetas'; 
     const { token } = useContext( AuthContext );
 
-   
     useEffect( () => {
       const option = {
         headers: {
@@ -42,12 +41,12 @@ const Home = () => {
     const onChange = ( event ) =>{
       const { name, value} = event.target;
       setReceta( ( r) => ({ ...r, [name]: value}) );
-      console.log(receta)
     }
     const manejadorSubmit = ( event) => {
       event.preventDefault();
    
       setLoad( true);
+
     // Fetch a la API del tipo POST
       const config = {
         method: 'POST',
@@ -62,7 +61,9 @@ const Home = () => {
         console.log(json);
         const _id = json.data._id;
         const fecha = json.data.fecha;
-        const nueva = { _id, descripcion, fecha };
+        const detalle = json.data.detalle;
+
+        const nueva = { _id, detalle, fecha };
   
         setRecetas( [...recetas, nueva]  );
         setReceta({nombre: '', tiempo: '', detalle: '' });
@@ -80,7 +81,7 @@ const Home = () => {
         <main className='container'>
         { load ? <Loading /> : <></> }
         
-        <form onSubmit={manejadorSubmit } >
+        <form onSubmit={manejadorSubmit } className='formReceta' >
           <input 
             onChange={ onChange }
             value={receta.nombre} 
@@ -97,13 +98,24 @@ const Home = () => {
             placeholder=""
             required 
             />
+            <textarea 
+              onChange={ onChange }
+              rows={3}
+              name="detalle"></textarea>
           <button type="submit"> Crear</button>
         </form>
-        <Tareas>
+        <Recetas>
           {
-            recetas.map( item => <Tarea key={item._id} creador={item.usuario.nombre} descripcion={item.nombre} tiempo={item.tiempo} /> )
+            recetas.map( item => <Receta 
+                            key={item._id} 
+                            creador={item.usuario.nombre} 
+                            nombre={item.nombre}
+                            descripcion={item.detalle} 
+                            tiempo={item.tiempo} 
+                            
+                            /> )
           }
-        </Tareas>
+        </Recetas>
       </main>
     )
 }

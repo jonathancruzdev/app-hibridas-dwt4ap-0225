@@ -1,4 +1,4 @@
-const Tarea = ({id, descripcion, tiempo, creador}) => {
+const Receta = ({id, nombre, descripcion, tiempo, creador}) => {
 
   
   return (
@@ -7,11 +7,11 @@ const Tarea = ({id, descripcion, tiempo, creador}) => {
             <i className="fa-solid fa-circle-check"></i>
         </button>
         <div className="descripcion">
-            <p className="nombre"> { descripcion } |  <strong>{ creador }</strong> </p>
+            <p className="nombre"> <strong>{ nombre }: </strong> | { descripcion } <strong>{ creador }</strong> </p>
             <p className="timestamp">{ tiempo}</p>
         </div>
     </li>
   )
 }
 
-export default Tarea
+export default Receta
