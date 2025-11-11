@@ -20,7 +20,12 @@ const Home = () => {
       fetch(endPoint, option ).then( resp =>  resp.json() )
       .then( json => {
         console.log(json);
-        setRecetas( json.data )
+        if( json.msg != 'Ok'){
+          setReceta( []);
+        } else {
+          setRecetas( json.data )
+
+        }
       }).catch( error => {
         console.error(error);
         alert('Error del servidor')

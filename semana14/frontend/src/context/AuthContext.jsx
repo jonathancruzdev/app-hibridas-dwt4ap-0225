@@ -1,11 +1,27 @@
-import { useState, createContext } from "react";
-
+import { useState, useEffect, createContext } from "react";
+import { jwtDecode } from "jwt-decode"
 const AuthContext = createContext();
 
 const AuthProvider = ( { children }) => {
     
     const [ user, setUser ] = useState( null );
     const [ token, setToken] = useState(  localStorage.getItem('jwt') );
+
+    useEffect( () => {
+        if( token){
+            try {
+                const decoded = jwtDecode( token );
+                console.log( decoded );
+                setUser( decoded )
+            } catch (error) {
+                console.error('Token Invalido', error);
+                setUser(null);
+            }
+        } else {
+            setUser(null);
+        }
+    }, [ token ] );
+
 
     const login = ( user, token) => {
         console.log('Soy el login del contexto');

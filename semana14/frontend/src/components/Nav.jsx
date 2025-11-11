@@ -1,8 +1,16 @@
 import { useNavigate, NavLink } from "react-router-dom";
-const Nav = ( {usuario}) => {
+import { useContext } from "react";
+
+import { AuthContext } from "../context/AuthContext";
+
+const Nav = ( ) => {
+  const { user, logout } = useContext( AuthContext);
+
     const navigate = useNavigate();
-    const logout = () => {
+    
+    const handleLogout = () => {
       if( confirm('¿Finalizar Sesión? ') ){
+        logout()
         navigate('/login');
       }
     }
@@ -13,17 +21,26 @@ const Nav = ( {usuario}) => {
           <li>
             <NavLink to='/'> Inicio</NavLink>
           </li>
-          <li>
-            <NavLink to='/login'>Login</NavLink>
-          </li>
-          <li>
-            <NavLink to='/register'>Registro</NavLink>
-          </li>
+          {
+            !user ? (
+              <>
+                <li>
+                  <NavLink to='/login'>Login</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/register'>Registro</NavLink>
+                </li>
+              </>
+            ) : <>
+            
+            </>
+          }
+
         </ul>
         <div className="user-info">
-            <p> { usuario }</p>
+            <p> { user?.nombre }</p>
             <div className="user-image"></div>
-            <button onClick={ () => logout() } type="button">Cerrar Sesión</button>
+            <button onClick={ () => handleLogout() } type="button">Cerrar Sesión</button>
         </div>
     </nav>
   )
